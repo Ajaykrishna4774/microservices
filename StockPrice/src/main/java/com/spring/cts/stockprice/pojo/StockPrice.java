@@ -35,10 +35,27 @@ public class StockPrice {
 	private Integer currentprice;
 
 	
-	Date date=new Date();
-
-
+	private String date;
 	private String time;
+	private String uploadfile;
+
+	public String getUploadfile() {
+		return uploadfile;
+	}
+
+	public void setUploadfile(String uploadfile) {
+		this.uploadfile = uploadfile;
+	}
+
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
+	}
+
+
 	
 	public String getTime() {
 		return time;
@@ -75,12 +92,5 @@ public class StockPrice {
 
 	
 	
-	public Date getDate() {
-		return date;
-	}
-
-	public void setDate(Date date) {
-		this.date = date;
-	}
 
 }
