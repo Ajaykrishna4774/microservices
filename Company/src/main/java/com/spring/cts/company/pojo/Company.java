@@ -1,13 +1,17 @@
 package com.spring.cts.company.pojo;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "company")
+
 public class Company {
 	@Id
 	private String companyname;
@@ -24,7 +28,15 @@ public class Company {
 	private Integer turnover;
 	private Integer listedinstock;
 	private String stockcode;
+	@Transient
+	List<StockPrice> stockPriceList;
 	
+	public List<StockPrice> getStockPriceList() {
+		return stockPriceList;
+	}
+	public void setStockPriceList(List<StockPrice> stockPriceList) {
+		this.stockPriceList = stockPriceList;
+	}
 	public String getCompanyname() {
 		return companyname;
 	}

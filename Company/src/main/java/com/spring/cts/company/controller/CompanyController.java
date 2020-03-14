@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.spring.cts.company.JSONCompanyClient;
 import com.spring.cts.company.dao.CompanyRepository;
 import com.spring.cts.company.pojo.Company;
 
@@ -25,6 +26,11 @@ public class CompanyController {
 	@Autowired
 	private CompanyRepository companyRepository;
 	
+
+@Autowired
+
+ JSONCompanyClient jcompany;
+
 	
 	
 		@RequestMapping("/getAllcompines")
@@ -66,6 +72,14 @@ public class CompanyController {
 			
 			
 			Optional<Company> company= companyRepository.findById(companyname);
+			 Company comp=company.get();
+
+
+
+			 comp.setStockPriceList(jcompany.findByCompanyname(companyname));
+
+
+			
 			return company.get();
 			
 			
